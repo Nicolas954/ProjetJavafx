@@ -1,10 +1,12 @@
 package appli.todolistjx.accueil;
 
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
+import appli.todolistjx.StartApplication;
 
 
 public class LoginController {
@@ -51,6 +53,7 @@ public class LoginController {
     @FXML
     private void onIncriptionButtonClick() {
         System.out.println("Action : Inscription.");
+        // StartApplication.changeScene("inscriptionView.fxml"); // (difficultés pour faire fonctionner le changeScene)
     }
 
 }

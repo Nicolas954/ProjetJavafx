@@ -53,7 +53,7 @@ public class LoginController {
     @FXML
     private void onIncriptionButtonClick() {
         System.out.println("Action : Inscription.");
-        // StartApplication.changeScene("inscriptionView.fxml"); // (difficultés pour faire fonctionner le changeScene)
+       //StartApplication.changeScene(new String[]{"inscriptionView.fxml"}); // (difficultés pour faire fonctionner le changeScene)
     }
 
 }

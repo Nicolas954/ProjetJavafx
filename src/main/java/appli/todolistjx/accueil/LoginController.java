@@ -8,6 +8,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.Button;
 import appli.todolistjx.StartApplication;
 
+import java.io.IOException;
+
 
 public class LoginController {
 
@@ -51,9 +53,9 @@ public class LoginController {
     }
 
     @FXML
-    private void onIncriptionButtonClick() {
+    private void onInscriptionButtonClick() throws IOException {
         System.out.println("Action : Inscription.");
-       //StartApplication.changeScene(new String[]{"inscriptionView.fxml"}); // (difficultés pour faire fonctionner le changeScene)
+        //StartApplication.changeScene(new String[]{"inscriptionView"}); // (difficultés pour faire fonctionner le changeScene)
     }
 
 }

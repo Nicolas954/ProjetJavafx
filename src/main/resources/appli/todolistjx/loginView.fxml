@@ -32,7 +32,7 @@
    <Label fx:id="erreurLabel" textFill="#f20606" />
     <Button fx:id="connexionButton" onAction="#onConnexionButtonClick" text="Connexion" />
    <Button fx:id="motDePasseOublieButton" mnemonicParsing="false" onAction="#onMotdepasseoublieButtonClick" text="Mots de passe oublié" />
-   <Button fx:id="inscriptionButton" mnemonicParsing="false" onAction="#onIncriptionButtonClick" text="Inscription" />
+   <Button fx:id="inscriptionButton" mnemonicParsing="false" onAction="#onInscriptionButtonClick" text="Inscription" />
    <cursor>
       <Cursor fx:constant="DEFAULT" />
    </cursor>

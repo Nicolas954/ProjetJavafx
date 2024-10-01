@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.io.IOException;
+
 public class InscriptionController {
 
     @FXML
@@ -59,8 +61,8 @@ public class InscriptionController {
     }
 
     @FXML
-    private void onRetourButtonClick() {
+    private void onRetourButtonClick() throws IOException {
         System.out.println("Retour à la page de connexion.");
-        // StartApplication.changeScene("login.fxml"); // (difficultés pour faire fonctionner le changeScene)
+        //StartApplication.changeScene(new String[]{"login.fxml"}); // (difficultés pour faire fonctionner le changeScene)
     }
 }

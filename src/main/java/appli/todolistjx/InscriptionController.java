@@ -6,8 +6,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import model.utilisateur;
+import repository.UtilisateurRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.Objects;
 
 public class InscriptionController {
 
@@ -51,18 +55,48 @@ public class InscriptionController {
         System.out.println("Mot de passe: " + password);
         System.out.println("Mot de passe confirmé: " + confpassword);
 
-        // Vérification simple (à améliorer plus tard)
-        if (name.isEmpty() || firstname.isEmpty() ||email.isEmpty() || password.isEmpty() || confpassword.isEmpty()) {
-            erreursLabel.setText("Veuillez remplir tous les champs.");
-        } else {
+
+        if (name.isEmpty() || firstname.isEmpty() ||email.isEmpty() || password.isEmpty() ||confpassword.isEmpty()) {
+            erreursLabel.setText("Erreur : Veuillez remplir tous les champs.");
+            return;
+        }
+
+        if (!mdpField.getText().equals(confirmationField.getText())) {
+            erreursLabel.setText("Erreur : les mots de passe ne correspondent pas !");
+            return;
+        }
+
+        else {
             erreursLabel.setText("");
             System.out.println("Inscription en cours...");
         }
+        utilisateur utilisateur = new utilisateur(0, nomField.getText(), prenomField.getText(), emailField.getText(), mdpField.getText());
+
+        UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
+        boolean success = false;
+        try {
+            success = utilisateurRepo.inscription(utilisateur);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        // Affiche le résultat de l'inscription
+        if (success) {
+            erreursLabel.setText("Utilisateur bien ajouté !");
+            // Retire les informations dans le formulaire
+            nomField.clear();
+            emailField.clear();
+            mdpField.clear();
+            confirmationField.clear();
+        } else {
+            erreursLabel.setText("Erreur lors de l'ajout de l'utilisateur.");
+        }
     }
+
 
     @FXML
     private void onRetourButtonClick() throws IOException {
         System.out.println("Retour à la page de connexion.");
-        //StartApplication.changeScene(new String[]{"login.fxml"}); // (difficultés pour faire fonctionner le changeScene)
+        StartApplication.changeScene("loginView.fxml");
     }
 }

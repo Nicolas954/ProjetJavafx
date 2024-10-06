@@ -49,17 +49,18 @@ public class LoginController {
         UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
         utilisateur utilisateur = utilisateurRepo.getUtilisateurByEmail(emailField);
 
-        if (emailField == null || !utilisateur.getPassword().equals(password)) {
+        if (emailField == null || !utilisateur.getMot_de_passe().equals(password)) {
             erreurLabel.setText("Erreur : Email ou mot de passe incorrect.");
             return;
         }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-        if (!passwordEncoder.matches(password, utilisateur.getPassword())) {
+        if (!passwordEncoder.matches(password, utilisateur.getMot_de_passe())) {
             erreurLabel.setText("Erreur: Email ou mot de passe incorrect.");
             return;
         }
         else {
             System.out.println("Connexion en cours...");
+            StartApplication.changeScene("AccueilView.fxml");
         }
     }
 

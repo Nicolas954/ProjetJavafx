@@ -5,14 +5,14 @@ public class utilisateur {
     private String nom;
     private String prenom;
     private String email;
-    private static String password;
+    private String mot_de_passe;
 
-    public utilisateur(int id, String nom, String prenom, String email, String password) {
+    public utilisateur(int id, String nom, String prenom, String email, String mot_de_passe) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
-        this.password = password;
+        this.mot_de_passe = mot_de_passe;
     }
 
     public int getId() {
@@ -47,19 +47,25 @@ public class utilisateur {
         this.email = email;
     }
 
-    public static String getPassword() {
-        return password;
+    public String getMot_de_passe() {
+        return mot_de_passe;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+
+
+    public void setMot_de_passe(String mot_de_passe) {
+        this.mot_de_passe = mot_de_passe;
     }
+
 
     @Override
     public String toString() {
-        return "User{" +
+        return "utilisateur{" +
                 "id=" + id +
                 ", nom='" + nom + '\'' +
-                ", email='" + email + '\'' + '}';
+                ", prenom='" + prenom + '\'' +
+                ", email='" + email + '\'' +
+                ", mot_de_passe='" + mot_de_passe + '\'' + '}';
+
     }
 }

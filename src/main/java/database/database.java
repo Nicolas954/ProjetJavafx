@@ -7,15 +7,15 @@ import java.sql.SQLException;
 public class database {
     private String serveur = "localhost";
     private String nomDeLaBase = "bddjavafx";
-    private String utilisateur = "admin";
-    private String MotDePasse = "1234";
+    private String utilisateur = "root";
+    private String MotDePasse = "";
+
 
     public database() {
         this.serveur = serveur;
         this.nomDeLaBase = nomDeLaBase;
         this.utilisateur = utilisateur;
         this.MotDePasse = MotDePasse;
-
     }
 
     private String getUrl() {

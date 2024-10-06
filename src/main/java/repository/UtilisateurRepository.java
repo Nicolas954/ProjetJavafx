@@ -20,23 +20,21 @@ public class UtilisateurRepository {
         String nom= utilisateur.getNom();
         String prenom= utilisateur.getPrenom();
         String email= utilisateur.getEmail();
-        String password= utilisateur.getPassword();
+        String mot_de_passe= utilisateur.getMot_de_passe();
 
         database db = new database();
         Connection cnx = db.getConnexion();
 
-        String sql = "INSERT INTO utilisateur (nom, prenom, email, password) VALUES (?, ?, ?, ?)";
 
         try {
 
-            PreparedStatement requete = cnx.prepareStatement(sql);
+            PreparedStatement requete = cnx.prepareStatement("INSERT INTO utilisateur (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
             requete.setString(1, utilisateur.getNom());
             requete.setString(2, utilisateur.getPrenom());
             requete.setString(3, utilisateur.getEmail());
-            requete.setString(4, utilisateur.getPassword());
 
             BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String hashedPassword = passwordEncoder.encode(utilisateur.getPassword());
+            String hashedPassword = passwordEncoder.encode(utilisateur.getMot_de_passe());
             requete.setString(4, hashedPassword);
 
             int rowsAffected = requete.executeUpdate();

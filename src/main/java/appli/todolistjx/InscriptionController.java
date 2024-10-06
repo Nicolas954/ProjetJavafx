@@ -45,18 +45,18 @@ public class InscriptionController {
         String name = nomField.getText();
         String firstname = prenomField.getText();
         String email = emailField.getText();
-        String password = mdpField.getText();
+        String mot_de_passe = mdpField.getText();
         String confpassword = confirmationField.getText();
 
         // Affiche les valeurs saisies dans la console
         System.out.println("Nom : " + name);
         System.out.println("Prenom: " + firstname);
         System.out.println("Email: " + email);
-        System.out.println("Mot de passe: " + password);
+        System.out.println("Mot de passe: " + mot_de_passe);
         System.out.println("Mot de passe confirmé: " + confpassword);
 
 
-        if (name.isEmpty() || firstname.isEmpty() ||email.isEmpty() || password.isEmpty() ||confpassword.isEmpty()) {
+        if (name.isEmpty() || firstname.isEmpty() ||email.isEmpty() || mot_de_passe.isEmpty() ||confpassword.isEmpty()) {
             erreursLabel.setText("Erreur : Veuillez remplir tous les champs.");
             return;
         }

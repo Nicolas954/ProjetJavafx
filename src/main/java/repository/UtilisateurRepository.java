@@ -28,7 +28,7 @@ public class UtilisateurRepository {
 
         try {
 
-            PreparedStatement requete = cnx.prepareStatement("INSERT INTO utilisateur (nom, prenom, email, password) VALUES (?, ?, ?, ?)");
+            PreparedStatement requete = cnx.prepareStatement("INSERT INTO utilisateur (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
             requete.setString(1, utilisateur.getNom());
             requete.setString(2, utilisateur.getPrenom());
             requete.setString(3, utilisateur.getEmail());

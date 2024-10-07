@@ -85,6 +85,7 @@ public class InscriptionController {
             erreursLabel.setText("Utilisateur bien ajouté !");
             // Retire les informations dans le formulaire
             nomField.clear();
+            prenomField.clear();
             emailField.clear();
             mdpField.clear();
             confirmationField.clear();

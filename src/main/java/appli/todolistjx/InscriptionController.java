@@ -31,32 +31,32 @@ public class InscriptionController {
     private PasswordField confirmationField;
 
     @FXML
-    private Label erreursLabel; // Label pour afficher les erreurs
+    private Label erreursLabel;
 
     @FXML
-    private Button inscriptionButton; // Bouton d'inscription
+    private Button inscriptionButton;
 
     @FXML
-    private Button retourButton; // Bouton de retour à la connexion
+    private Button retourButton;
 
-    // Méthode appelée lors du clic sur le bouton d'inscription
+
     @FXML
     private void onInscriptionButtonClick() {
-        String name = nomField.getText();
-        String firstname = prenomField.getText();
+        String nom = nomField.getText();
+        String prenom = prenomField.getText();
         String email = emailField.getText();
         String mot_de_passe = mdpField.getText();
         String confpassword = confirmationField.getText();
 
-        // Affiche les valeurs saisies dans la console
-        System.out.println("Nom : " + name);
-        System.out.println("Prenom: " + firstname);
+
+        System.out.println("Nom : " + nom);
+        System.out.println("Prenom: " + prenom);
         System.out.println("Email: " + email);
         System.out.println("Mot de passe: " + mot_de_passe);
         System.out.println("Mot de passe confirmé: " + confpassword);
 
 
-        if (name.isEmpty() || firstname.isEmpty() ||email.isEmpty() || mot_de_passe.isEmpty() ||confpassword.isEmpty()) {
+        if (nom.isEmpty() || prenom.isEmpty() ||email.isEmpty() || mot_de_passe.isEmpty() ||confpassword.isEmpty()) {
             erreursLabel.setText("Erreur : Veuillez remplir tous les champs.");
             return;
         }
@@ -80,10 +80,10 @@ public class InscriptionController {
             throw new RuntimeException(e);
         }
 
-        // Affiche le résultat de l'inscription
+
         if (success) {
             erreursLabel.setText("Utilisateur bien ajouté !");
-            // Retire les informations dans le formulaire
+
             nomField.clear();
             prenomField.clear();
             emailField.clear();

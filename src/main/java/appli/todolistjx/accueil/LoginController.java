@@ -42,6 +42,7 @@ public class LoginController {
         System.out.println("Email: " + email);
         System.out.println("Mot de passe: " + password);
 
+
         if (email==null || email.length()==0 || password==null || password.length()==0) {
         erreurLabel.setText("Erreur : Veuillez remplir les champs vide!");
         return;
@@ -49,7 +50,7 @@ public class LoginController {
         UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
         utilisateur utilisateur = utilisateurRepo.getUtilisateurByEmail(emailField);
 
-        if (emailField == null || !utilisateur.getMot_de_passe().equals(password)) {
+        if (emailField == null || utilisateur.getMot_de_passe().equals(password)) {
             erreurLabel.setText("Erreur : Email ou mot de passe incorrect.");
             return;
         }
@@ -69,6 +70,7 @@ public class LoginController {
         System.out.println("Action : Mot de passe oublié.");
         erreurLabel.setText("Envoi du nouveau mot de passe par émail!");
     }
+
 
     @FXML
     private void onInscriptionButtonClick() throws IOException {

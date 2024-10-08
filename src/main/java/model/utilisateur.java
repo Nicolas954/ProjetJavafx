@@ -15,6 +15,9 @@ public class utilisateur {
         this.mot_de_passe = mot_de_passe;
     }
 
+    public utilisateur(int anInt, String string) {
+    }
+
     public int getId() {
         return id;
     }

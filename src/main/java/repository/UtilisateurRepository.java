@@ -5,10 +5,7 @@ import javafx.scene.control.TextField;
 import model.utilisateur;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class UtilisateurRepository {
 
@@ -52,8 +49,29 @@ public class UtilisateurRepository {
     }
 
 
-    public utilisateur getUtilisateurByEmail(TextField emailField) {
+    public utilisateur getUtilisateurByEmail(String email) throws SQLException {
+        Connection maConnextion= DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/bddjavafx","root",""
+        );
+        utilisateur user =null;
+        database db = new database();
+        Connection cnx = db.getConnexion();
 
-        return null;
+
+        try {
+            PreparedStatement requete = cnx.prepareStatement("INSERT INTO utilisateur (nom, prenom, email, mot_de_passe) VALUES (?, ?, ?, ?)");
+            requete.setString(1,email);
+            ResultSet rs = requete.executeQuery();
+           while(rs.next()){
+               rs.getInt(1);
+               rs.getString(2);
+               user = new utilisateur(rs.getInt(1),rs.getString(2));
+           }
+
+        } catch (SQLException e) {
+            System.err.println("Erreur" + e.getMessage());
+            return null;
+        }
+        return user;
     }
 }

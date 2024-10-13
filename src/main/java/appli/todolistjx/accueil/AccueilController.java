@@ -1,11 +1,14 @@
 package appli.todolistjx.accueil;
 import appli.todolistjx.StartApplication;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-public class AccueilController {
+import java.net.URL;
+import java.util.ResourceBundle;
 
+public class AccueilController implements Initializable {
         @FXML
         private Label welcomeLabel;
 
@@ -21,4 +24,9 @@ public class AccueilController {
             Stage stage = (Stage) welcomeLabel.getScene().getWindow();
             StartApplication.changeScene("loginView.fxml");
         }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
+}

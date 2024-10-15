@@ -17,9 +17,9 @@ public class StartApplication extends Application {
         mainStage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(StartApplication.class.getResource("loginView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        this.mainStage.setTitle("Hello!");
-        this.mainStage.setScene(scene);
-        this.mainStage.show();
+        mainStage.setTitle("Hello!");
+        mainStage.setScene(scene);
+        mainStage.show();
     }
 
     public static void changeScene(String nomDuFichierFxml) {

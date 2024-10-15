@@ -16,7 +16,7 @@
    <Button layoutX="66.0" layoutY="307.0" mnemonicParsing="false" text="Les Types" />
    <Button layoutX="49.0" layoutY="256.0" mnemonicParsing="false" text="Ajouter une liste" />
    <Label fx:id="welcomeLabel1" layoutX="196.0" layoutY="64.0" text="Ensemble des listes créées :" />
-   <TableView layoutX="196.0" layoutY="89.0" prefHeight="333.0" prefWidth="437.0">
+   <TableView fx:id="tableauListe" layoutX="196.0" layoutY="89.0" prefHeight="333.0" prefWidth="437.0">
      <columns>
        <TableColumn prefWidth="75.0" />
        <TableColumn prefWidth="75.0" />

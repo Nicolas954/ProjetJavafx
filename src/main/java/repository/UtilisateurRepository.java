@@ -74,8 +74,4 @@ public class UtilisateurRepository {
         }
         return user;
     }
-
-    public utilisateur getUtilisateurByEmail(TextField emailField) {
-        return null;
-    }
 }

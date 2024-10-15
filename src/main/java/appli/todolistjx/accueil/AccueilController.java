@@ -3,6 +3,7 @@ import appli.todolistjx.StartApplication;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -13,10 +14,15 @@ public class AccueilController implements Initializable {
         private Label welcomeLabel;
 
         @FXML
+        private TableView <?> tableauListe;
+
+        @FXML
         public void initialize() {
+
 
             welcomeLabel.setText("Bienvenue dans l'application !");
         }
+
 
         @FXML
         private void onDeconnexionButtonClick() {
@@ -27,6 +33,11 @@ public class AccueilController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+            String[][]colonnes={
+                    {"Id liste","idListe"},
+                    {"Nom","nom"},
+            };
 
     }
+
 }

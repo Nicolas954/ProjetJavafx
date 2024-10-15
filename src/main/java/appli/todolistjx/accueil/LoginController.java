@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import repository.UtilisateurRepository;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 
 public class LoginController {
@@ -35,7 +36,7 @@ public class LoginController {
 
 
     @FXML
-    protected void onConnexionButtonClick() {
+    protected void onConnexionButtonClick() throws SQLException {
         String email = emailField.getText();
         String password = mdpField.getText();
 
@@ -43,14 +44,14 @@ public class LoginController {
         System.out.println("Mot de passe: " + password);
 
 
-        if (email==null || email.length()==0 || password==null || password.length()==0) {
+        if (email==null || email.isEmpty() || password==null || password.isEmpty()) {
         erreurLabel.setText("Erreur : Veuillez remplir les champs vide!");
         return;
         }
         UtilisateurRepository utilisateurRepo = new UtilisateurRepository();
-        utilisateur utilisateur = utilisateurRepo.getUtilisateurByEmail(emailField);
+        utilisateur utilisateur = utilisateurRepo.getUtilisateurByEmail(email);
 
-        if (emailField == null || utilisateur.getMot_de_passe().equals(password)) {
+        if (emailField == null || !utilisateur.getMot_de_passe().equals(password)) {
             erreurLabel.setText("Erreur : Email ou mot de passe incorrect.");
             return;
         }
